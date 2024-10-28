@@ -29,3 +29,5 @@ api_platform:
         jsonproblem:
             mime_types:
                 - application/problem+json
+    serializer:
+        hydra_prefix: true
