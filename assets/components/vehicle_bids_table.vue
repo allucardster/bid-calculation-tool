@@ -16,9 +16,12 @@
     </thead>
     <tbody>
       <tr v-for="vehicleBid in vehicleBids">
-        <td>{{formatCurrency(vehicleBid.vehicle.price)}}</td>
-        <td>{{vehicleBid.vehicle.type}}</td>
-        <td v-for="fee in vehicleBid.fees">{{formatCurrency(fee.value)}}</td>
+        <td>{{ formatCurrency(vehicleBid.vehicle.price) }}</td>
+        <td>{{ vehicleBid.vehicle.type }}</td>
+        <td>{{ formatCurrency(vehicleBid.feeValuesByType.basic) }}</td>
+        <td>{{ formatCurrency(vehicleBid.feeValuesByType.special) }}</td>
+        <td>{{ formatCurrency(vehicleBid.feeValuesByType.association) }}</td>
+        <td>{{ formatCurrency(vehicleBid.feeValuesByType.storage) }}</td>
         <td>{{formatCurrency(vehicleBid.total)}}</td>
       </tr>
     </tbody>

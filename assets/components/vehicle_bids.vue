@@ -26,6 +26,21 @@ export default {
     async handleFormSubmission(formData) {
       try {
         const response = await axios.post('/api/vehicle_bids', formData);
+        const fees = 'fees' in response.data ? response.data.fees : [];
+
+        response.data.feeValuesByType = fees.reduce((acc, fee) => {
+          if ('type' in fee) {
+            acc[fee.type] = fee.value;
+          }
+
+          return acc;
+        }, {
+          association: 0,
+          basic: 0,
+          special: 0,
+          storage: 0
+        });
+
         this.vehicleBids.push(response.data);
       } catch (error) {
         console.log(error);
