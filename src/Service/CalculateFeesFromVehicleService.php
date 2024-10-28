@@ -4,18 +4,16 @@ namespace App\Service;
 
 use App\Model\Fee;
 use App\Model\Vehicle;
-use App\Service\Fee\CalculateAssociationFeeFromVehicleService;
-use App\Service\Fee\CalculateBasicFeeFromVehicleService;
-use App\Service\Fee\CalculateSpecialFeeFromVehicleService;
-use App\Service\Fee\CalculateStorageFeeFromVehicleService;
+use App\Service\Fee\CalculateFeeFromVehicleServiceInterface;
+use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 
 final class CalculateFeesFromVehicleService
 {
+    /**
+     * @param iterable|CalculateFeeFromVehicleServiceInterface[] $handlers
+     */
     public function __construct(
-        private readonly CalculateBasicFeeFromVehicleService $calculateBasicFeeFromVehicleService,
-        private readonly CalculateSpecialFeeFromVehicleService $calculateSpecialFeeFromVehicleService,
-        private readonly CalculateAssociationFeeFromVehicleService $calculateAssociationFeeFromVehicleService,
-        private readonly CalculateStorageFeeFromVehicleService $calculateStorageFeeFromVehicleService,
+        #[TaggedIterator(CalculateFeeFromVehicleServiceInterface::TAG_NAME)] private readonly iterable $handlers
     ) {
 
     }
@@ -26,11 +24,11 @@ final class CalculateFeesFromVehicleService
      */
     public function __invoke(Vehicle $vehicle): array
     {
-        return [
-            ($this->calculateBasicFeeFromVehicleService)($vehicle),
-            ($this->calculateSpecialFeeFromVehicleService)($vehicle),
-            ($this->calculateAssociationFeeFromVehicleService)($vehicle),
-            ($this->calculateStorageFeeFromVehicleService)($vehicle),
-        ];
+        $fees = [];
+        foreach ($this->handlers as $handler) {
+            $fees[] = ($handler)($vehicle);
+        }
+
+        return $fees;
     }
 }

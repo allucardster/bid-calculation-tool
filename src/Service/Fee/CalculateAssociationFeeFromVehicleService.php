@@ -6,7 +6,7 @@ use App\Model\Fee;
 use App\Model\FeeTypeEnum;
 use App\Model\Vehicle;
 
-final class CalculateAssociationFeeFromVehicleService
+final class CalculateAssociationFeeFromVehicleService implements CalculateFeeFromVehicleServiceInterface
 {
     public function __invoke(Vehicle $vehicle): Fee
     {

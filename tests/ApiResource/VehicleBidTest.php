@@ -39,9 +39,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::COMMON,
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 5],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 39.800000000000004],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 7.96],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 5],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 550.76
@@ -52,9 +52,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::COMMON,
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 10],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 50],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 10.02],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 10],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 671.02
@@ -65,9 +65,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::COMMON,
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 5],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 10],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 1.1400000000000001],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 5],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 173.14
@@ -78,9 +78,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::LUXURY
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 15],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 180],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 72],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 15],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 2167
@@ -91,9 +91,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::COMMON,
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 15],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 50],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 22],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 15],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 1287
@@ -104,9 +104,9 @@ final class VehicleBidTest extends ApiTestCase
                     'type' => VehicleTypeEnum::LUXURY
                 ],
                 'fees' => [
+                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 20],
                     ['type' => FeeTypeEnum::BASIC, 'value' => 200],
                     ['type' => FeeTypeEnum::SPECIAL, 'value' => 40000],
-                    ['type' => FeeTypeEnum::ASSOCIATION, 'value' => 20],
                     ['type' => FeeTypeEnum::STORAGE, 'value' => 100],
                 ],
                 'total' => 1040320
