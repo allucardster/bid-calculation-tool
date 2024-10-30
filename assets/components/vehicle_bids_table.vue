@@ -22,12 +22,15 @@
         <td>{{ formatCurrency(vehicleBid.feeValuesByType.special) }}</td>
         <td>{{ formatCurrency(vehicleBid.feeValuesByType.association) }}</td>
         <td>{{ formatCurrency(vehicleBid.feeValuesByType.storage) }}</td>
-        <td>{{formatCurrency(vehicleBid.total)}}</td>
+        <td>{{ formatCurrency(vehicleBid.total) }}</td>
       </tr>
     </tbody>
   </table>
 </template>
 <script>
+
+import formatCurrency from '../filters/formatCurrency';
+
 export default {
   name: 'VehicleBidsTable',
   props: {
@@ -37,7 +40,7 @@ export default {
     }
   },
   methods: {
-    formatCurrency: (value) => (Math.round(value * 100) / 100).toFixed(2)
+    formatCurrency
   }
 }
 </script>
