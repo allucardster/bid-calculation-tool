@@ -4,7 +4,7 @@
       <form class="d-flex" @submit.prevent="submitForm">
         <div class="input-group me-2">
           <label for="vehiclePrice" class="navbar-text me-2">Vehicle Price</label>
-          <input type="number" class="form-control" id="vehiclePrice" v-model.number="formData.vehiclePrice">
+          <input type="number" step=0.01 class="form-control" id="vehiclePrice" v-model.number="formData.vehiclePrice">
         </div>
         <div class="input-group me-2">
           <label for="vehicleType" class="navbar-text me-2">Vehicle Type</label>
@@ -21,19 +21,17 @@
 </template>
 <script>
 
-import {ref} from "vue";
-
 export default {
   name: 'VehicleBidsForm',
   data() {
     return {
-      vehicleTypes: ref([
+      vehicleTypes: [
         { text: 'Common', value: 'common' },
         { text: 'Luxury', value: 'luxury' },
-      ]),
+      ],
       formData: {
         vehiclePrice: 0,
-        vehicleType: ref('common')
+        vehicleType: 'common'
       }
     }
   },
